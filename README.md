@@ -15,10 +15,10 @@ This module creates an ECS service and task definition, designed to work with th
 
 ```hcl
 module "ecs_service" {
-  source  = "your-org/aws-ecs-service/terraform"
+  source  = "payraydoo/aws-ecs-service/terraform"
   version = "0.1.0"
 
-  tag_org          = "company"
+  tag_org          = "payraydoo"
   env              = "dev"
   service_name     = "api"
   cluster_id       = module.ecs_cluster_asg.cluster_id
