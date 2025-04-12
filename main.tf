@@ -172,7 +172,7 @@ resource "aws_ecs_service" "this" {
 
   # Prevent Terraform from trying to manage the service's desired count if autoscaling is enabled
   lifecycle {
-    ignore_changes = var.enable_autoscaling ? [desired_count] : []
+    ignore_changes = [desired_count]
   }
 }
 
