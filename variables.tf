@@ -120,3 +120,10 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+# Add the new execution_role_arn variable
+variable "execution_role_arn" {
+  description = "ARN of the IAM role that the ECS container agent and Docker daemon can assume"
+  type        = string
+  default     = null
+}

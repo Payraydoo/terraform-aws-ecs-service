@@ -1,6 +1,4 @@
-##############################################
 # main.tf
-##############################################
 
 # Create IAM role for ECS task execution
 resource "aws_iam_role" "ecs_task_execution_role" {
@@ -108,7 +106,7 @@ resource "aws_ecs_task_definition" "this" {
   requires_compatibilities = ["EC2"]
   cpu                      = var.task_cpu
   memory                   = var.task_memory
-  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  execution_role_arn       = var.execution_role_arn != null ? var.execution_role_arn : aws_iam_role.ecs_task_execution_role.arn
   task_role_arn            = aws_iam_role.ecs_task_role.arn
 
   tags = merge(
